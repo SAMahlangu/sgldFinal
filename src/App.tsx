@@ -81,6 +81,7 @@ function App() {
             />
             <Route path="/test" element={<FormArrayTest />} />
             <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route path="*" element={<Navigate to="/login" replace />} />
           </Routes>
         </div>
       </Router>
