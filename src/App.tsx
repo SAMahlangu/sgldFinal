@@ -35,7 +35,7 @@ const AdminRoute = ({ children }: { children: React.ReactNode }) => {
 function App() {
   return (
     <AuthProvider>
-      <Router basename="/sgld3">
+      <Router>
         <div className="min-h-screen bg-gray-50">
           <Routes>
             <Route path="/login" element={<LoginForm />} />

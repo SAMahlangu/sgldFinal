@@ -1055,7 +1055,7 @@ const SGLDForm: React.FC = () => {
               <div className="mt-4 pt-4 border-t border-gray-200">
                 <div className="flex justify-between items-center font-medium">
                   <span>Total Expenditure:</span>
-                  <span>${totalExpenditure.toFixed(2)}</span>
+                  <span>R{totalExpenditure.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -1116,7 +1116,7 @@ const SGLDForm: React.FC = () => {
               <div className="mt-4 pt-4 border-t border-gray-200">
                 <div className="flex justify-between items-center font-medium">
                   <span>Total Income:</span>
-                  <span>${totalIncome.toFixed(2)}</span>
+                  <span>R{totalIncome.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -1125,7 +1125,7 @@ const SGLDForm: React.FC = () => {
               <div className="flex justify-between items-center text-lg font-semibold">
                 <span>Net Balance:</span>
                 <span className={totalIncome - totalExpenditure >= 0 ? 'text-green-600' : 'text-red-600'}>
-                  ${(totalIncome - totalExpenditure).toFixed(2)}
+                  R{(totalIncome - totalExpenditure).toFixed(2)}
                 </span>
               </div>
             </div>

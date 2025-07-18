@@ -6,13 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "clean": "rimraf dist",
-    "build:pages": "vite build --base=/sgld3/",
-    "deploy": "npm run clean && npm run build:pages && git add . && git commit -m \"Deploy to GitHub Pages\" && git push origin main",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.10",
     "@supabase/supabase-js": "^2.50.3",
     "@types/react-router-dom": "^5.3.3",
     "html2canvas": "^1.4.1",
