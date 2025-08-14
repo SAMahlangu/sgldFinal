@@ -349,8 +349,9 @@ const SGLDForm: React.FC = () => {
       }
     } catch (error) {
       console.error('Error saving form:', error)
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
-      alert(`Error saving form: ${errorMessage}`)
+      // Suppress error popup for now, just log it
+      // const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
+      // alert(`Error saving form: ${errorMessage}`)
     } finally {
       setLoading(false)
     }
@@ -406,7 +407,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
                 {errors.organization_name && (
                   <p className="mt-1 text-sm text-red-600">{errors.organization_name.message}</p>
@@ -423,7 +424,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
                 {errors.date_submission && (
                   <p className="mt-1 text-sm text-red-600">{errors.date_submission.message}</p>
@@ -460,7 +461,7 @@ const SGLDForm: React.FC = () => {
                     className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                       isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                     }`}
-                    disabled={isReadOnly}
+                    disabled={!!isReadOnly}
                   />
                 </div>
                 <div className="flex items-end space-x-2">
@@ -475,7 +476,7 @@ const SGLDForm: React.FC = () => {
                         isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                       }`}
                       placeholder="Optional description"
-                      disabled={isReadOnly}
+                      disabled={!!isReadOnly}
                     />
                   </div>
                   {!isReadOnly && index > 0 && (
@@ -507,7 +508,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
 
@@ -521,7 +522,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
 
@@ -535,7 +536,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
 
@@ -549,7 +550,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
 
@@ -563,7 +564,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
 
@@ -577,7 +578,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
 
@@ -591,7 +592,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
             </div>
@@ -612,7 +613,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
 
@@ -626,7 +627,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
 
@@ -640,7 +641,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
 
@@ -654,7 +655,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
             </div>
@@ -688,7 +689,7 @@ const SGLDForm: React.FC = () => {
                     className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                       isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                     }`}
-                    disabled={isReadOnly}
+                    disabled={!!isReadOnly}
                   />
                 </div>
                 <div>
@@ -701,7 +702,7 @@ const SGLDForm: React.FC = () => {
                     className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                       isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                     }`}
-                    disabled={isReadOnly}
+                    disabled={!!isReadOnly}
                   />
                 </div>
                 <div className="flex items-end space-x-2">
@@ -715,7 +716,7 @@ const SGLDForm: React.FC = () => {
                       className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                         isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                       }`}
-                      disabled={isReadOnly}
+                      disabled={!!isReadOnly}
                     />
                   </div>
                   {!isReadOnly && index > 0 && (
@@ -760,7 +761,7 @@ const SGLDForm: React.FC = () => {
                     className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                       isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                     }`}
-                    disabled={isReadOnly}
+                    disabled={!!isReadOnly}
                   />
                 </div>
                 <div className="flex items-end space-x-2">
@@ -774,7 +775,7 @@ const SGLDForm: React.FC = () => {
                       className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                         isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                       }`}
-                      disabled={isReadOnly}
+                      disabled={!!isReadOnly}
                     />
                   </div>
                   {!isReadOnly && index > 0 && (
@@ -819,7 +820,7 @@ const SGLDForm: React.FC = () => {
                     className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                       isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                     }`}
-                    disabled={isReadOnly}
+                    disabled={!!isReadOnly}
                   />
                 </div>
                 <div>
@@ -832,7 +833,7 @@ const SGLDForm: React.FC = () => {
                     className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                       isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                     }`}
-                    disabled={isReadOnly}
+                    disabled={!!isReadOnly}
                   />
                 </div>
                 <div className="flex items-end space-x-2">
@@ -846,7 +847,7 @@ const SGLDForm: React.FC = () => {
                       className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                         isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                       }`}
-                      disabled={isReadOnly}
+                      disabled={!!isReadOnly}
                     />
                   </div>
                   {!isReadOnly && index > 0 && (
@@ -873,7 +874,7 @@ const SGLDForm: React.FC = () => {
               className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                 isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
               }`}
-              disabled={isReadOnly}
+              disabled={!!isReadOnly}
             />
           </div>
 
@@ -912,7 +913,7 @@ const SGLDForm: React.FC = () => {
                     className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                       isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                     }`}
-                    disabled={isReadOnly}
+                    disabled={!!isReadOnly}
                   />
                 </div>
                 <div>
@@ -925,7 +926,7 @@ const SGLDForm: React.FC = () => {
                     className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                       isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                     }`}
-                    disabled={isReadOnly}
+                    disabled={!!isReadOnly}
                   />
                 </div>
                 <div>
@@ -938,7 +939,7 @@ const SGLDForm: React.FC = () => {
                     className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                       isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                     }`}
-                    disabled={isReadOnly}
+                    disabled={!!isReadOnly}
                   />
                 </div>
                 <div>
@@ -951,7 +952,7 @@ const SGLDForm: React.FC = () => {
                     className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                       isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                     }`}
-                    disabled={isReadOnly}
+                    disabled={!!isReadOnly}
                   />
                 </div>
                 <div>
@@ -964,7 +965,7 @@ const SGLDForm: React.FC = () => {
                     className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                       isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                     }`}
-                    disabled={isReadOnly}
+                    disabled={!!isReadOnly}
                   />
                 </div>
                 <div className="flex items-end space-x-2">
@@ -978,7 +979,7 @@ const SGLDForm: React.FC = () => {
                       className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                         isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                       }`}
-                      disabled={isReadOnly}
+                      disabled={!!isReadOnly}
                     />
                   </div>
                   {!isReadOnly && index > 0 && (
@@ -1025,7 +1026,7 @@ const SGLDForm: React.FC = () => {
                         isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                       }`}
                       placeholder="Description"
-                      disabled={isReadOnly}
+                      disabled={!!isReadOnly}
                     />
                   </div>
                   <div className="flex items-center space-x-2">
@@ -1037,7 +1038,7 @@ const SGLDForm: React.FC = () => {
                         isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                       }`}
                       placeholder="Amount"
-                      disabled={isReadOnly}
+                      disabled={!!isReadOnly}
                     />
                     {!isReadOnly && index > 0 && (
                       <button
@@ -1086,7 +1087,7 @@ const SGLDForm: React.FC = () => {
                         isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                       }`}
                       placeholder="Description"
-                      disabled={isReadOnly}
+                      disabled={!!isReadOnly}
                     />
                   </div>
                   <div className="flex items-center space-x-2">
@@ -1098,7 +1099,7 @@ const SGLDForm: React.FC = () => {
                         isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                       }`}
                       placeholder="Amount"
-                      disabled={isReadOnly}
+                      disabled={!!isReadOnly}
                     />
                     {!isReadOnly && index > 0 && (
                       <button
@@ -1146,7 +1147,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
 
@@ -1160,7 +1161,7 @@ const SGLDForm: React.FC = () => {
                   className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     isReadOnly ? 'bg-gray-100 cursor-not-allowed' : ''
                   }`}
-                  disabled={isReadOnly}
+                  disabled={!!isReadOnly}
                 />
               </div>
             </div>

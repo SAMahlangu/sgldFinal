@@ -3,19 +3,39 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://your-project.supabase.co'
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'your-anon-key'
 
+// Debug: Log Supabase config at startup
+console.log('[Supabase] URL:', supabaseUrl)
+console.log('[Supabase] Anon Key present:', !!supabaseAnonKey && supabaseAnonKey !== 'your-anon-key')
+
+if (!supabaseUrl || supabaseUrl === 'https://your-project.supabase.co') {
+  throw new Error('[Supabase] ERROR: VITE_SUPABASE_URL is missing or default! Check your .env or environment variables.')
+}
+if (!supabaseAnonKey || supabaseAnonKey === 'your-anon-key') {
+  throw new Error('[Supabase] ERROR: VITE_SUPABASE_ANON_KEY is missing or default! Check your .env or environment variables.')
+}
+
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 // Set user context for RLS
 export const setUserContext = async (userId: string) => {
+  // This will set the context variable for the current session
+  // Supabase Postgres must have the set_config function available
   try {
-    console.log('Setting user context for:', userId)
-    // For now, we'll use a simpler approach since the RPC might not exist
-    // The RLS policies should work based on the user's role and ID
-    console.log('User context set successfully')
-  } catch (error) {
-    console.error('Error setting user context:', error)
+    const { error } = await supabase.rpc('set_config', {
+      setting_name: 'app.current_user_id',
+      setting_value: userId,
+      is_local: true
+    });
+    if (error) {
+      console.error('Error setting user context:', error);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error('Exception setting user context:', err);
+    return false;
   }
-}
+};
 
 // Test function to verify Supabase connection
 export const testSupabaseConnection = async () => {
